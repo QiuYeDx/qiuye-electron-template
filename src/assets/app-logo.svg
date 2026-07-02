@@ -1,25 +1,6 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="20" y1="14" x2="108" y2="116" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#18181B"/>
-      <stop offset="1" stop-color="#030303"/>
-    </linearGradient>
-    <linearGradient id="mark" x1="37" y1="34" x2="94" y2="98" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#D4D4D8"/>
-    </linearGradient>
-  </defs>
-
-  <rect x="10" y="10" width="108" height="108" rx="26" fill="url(#bg)"/>
-  <rect x="10.75" y="10.75" width="106.5" height="106.5" rx="25.25" stroke="white" stroke-opacity="0.12" stroke-width="1.5"/>
-
-  <path d="M90 26H47C34.3 26 24 36.3 24 49v30c0 12.7 10.3 23 23 23h36" stroke="white" stroke-opacity="0.08" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M48 46H78" stroke="white" stroke-opacity="0.17" stroke-width="4" stroke-linecap="round"/>
-  <path d="M48 63H63" stroke="white" stroke-opacity="0.14" stroke-width="4" stroke-linecap="round"/>
-
-  <circle cx="64" cy="63" r="28" stroke="url(#mark)" stroke-width="12" stroke-linecap="round"/>
-  <path d="M77.5 80.5L88.5 91" stroke="url(#mark)" stroke-width="10.5" stroke-linecap="round"/>
-
-  <rect x="96" y="30" width="8" height="8" rx="2.5" fill="white" fill-opacity="0.9"/>
-  <rect x="96" y="44" width="8" height="8" rx="2.5" fill="white" fill-opacity="0.3"/>
+  <rect x="12" y="12" width="104" height="104" rx="24" fill="#09090B"/>
+  <rect x="78" y="78" width="27" height="15" rx="7.5" transform="rotate(45 78 78)" fill="#D4D4D8"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M64 30C45.2223 30 30 45.2223 30 64C30 82.7777 45.2223 98 64 98C82.7777 98 98 82.7777 98 64C98 45.2223 82.7777 30 64 30ZM64 49C55.7157 49 49 55.7157 49 64C49 72.2843 55.7157 79 64 79C72.2843 79 79 72.2843 79 64C79 55.7157 72.2843 49 64 49Z" fill="#FAFAFA"/>
+  <circle cx="64" cy="64" r="15" fill="#09090B"/>
 </svg>
