@@ -1,0 +1,44 @@
+{
+  "title": "設定",
+  "description": "調整模板級偏好和通用行為。",
+  "nav": {
+    "general": {
+      "label": "通用",
+      "hint": "語言與主題"
+    },
+    "update": {
+      "label": "更新",
+      "hint": "檢查策略"
+    }
+  },
+  "subtitle": {
+    "general_config": "通用設定",
+    "update_config": "更新設定"
+  },
+  "fields": {
+    "language": "語言",
+    "theme": "主題",
+    "light_mode": "淺色",
+    "dark_mode": "深色",
+    "system_mode": "跟隨系統",
+    "notification": {
+      "label": "系統通知",
+      "test_btn": "測試通知",
+      "test_title": "通知已連接",
+      "test_body": "Electron 主程序可以正常顯示系統通知。"
+    },
+    "update": {
+      "auto_check": {
+        "label": "啟動時自動檢查",
+        "desc": "應用啟動後靜默檢查 GitHub Releases，發現新版本時再提示。"
+      },
+      "show_changelog": {
+        "label": "顯示更新日誌",
+        "desc": "有新版本時嘗試讀取遠端 CHANGELOG.md，並展示相關版本條目。"
+      },
+      "target_repo": "目標倉庫",
+      "target_repo_desc": "複製模板後可透過 .env、package.json template.update 和常量檔設定目標倉庫。"
+    }
+  }
+}
+

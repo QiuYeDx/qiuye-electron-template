@@ -1,0 +1,33 @@
+{
+  "app_name": "QiuYe Electron Template",
+  "lang": {
+    "zh": "简体中文",
+    "zh-Hant": "繁體中文",
+    "en": "English",
+    "ja": "日本語"
+  },
+  "menu": {
+    "home": "主頁",
+    "about": "關於",
+    "setting": "設定"
+  },
+  "action": {
+    "check_update": "檢查更新",
+    "toggle_theme": "切換主題"
+  },
+  "window": {
+    "close": "關閉視窗",
+    "minimize": "最小化視窗",
+    "toggle_maximize": "最大化或還原視窗"
+  },
+  "update": {
+    "title": "應用程式更新",
+    "checking": "正在檢查",
+    "available_title": "發現新版本 {{version}}",
+    "up_to_date_title": "目前已是最新版本",
+    "error_title": "檢查更新失敗",
+    "open_releases": "開啟 Releases",
+    "changelog_title": "更新日誌"
+  }
+}
+

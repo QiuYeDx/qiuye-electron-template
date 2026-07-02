@@ -1,0 +1,48 @@
+{
+  "title": "关于",
+  "description": "模板信息、版本和项目链接。",
+  "tagline": "一个偏向个人项目初始化的 Electron 模板，保留通用体验，避免混入具体业务。",
+  "buttons": {
+    "repo": "仓库",
+    "releases": "发布记录"
+  },
+  "stats": {
+    "platform": "平台",
+    "license": "许可",
+    "build": "版本",
+    "stack": "技术栈"
+  },
+  "links": {
+    "repo": {
+      "title": "源码仓库",
+      "desc": "复制模板后优先修改仓库、appId、应用名和图标。"
+    },
+    "author": {
+      "title": "作者主页",
+      "desc": "个人项目与作品入口。"
+    },
+    "blog": {
+      "title": "博客",
+      "desc": "记录设计、开发和折腾过程。"
+    },
+    "contact": {
+      "title": "联系",
+      "desc": "用于模板维护和项目协作。"
+    }
+  },
+  "subtitle": {
+    "tech_stack": "技术栈"
+  },
+  "tech": {
+    "framework": "框架",
+    "language": "语言",
+    "build_tool": "构建工具",
+    "style": "样式",
+    "state": "状态",
+    "motion": "动效",
+    "i18n": "国际化",
+    "pkg": "包管理"
+  },
+  "license_note": "模板默认使用 MIT License；复制为私有或商业项目时请按目标项目重新确认许可。"
+}
+

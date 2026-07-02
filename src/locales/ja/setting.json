@@ -1,0 +1,44 @@
+{
+  "title": "設定",
+  "description": "テンプレートレベルの設定と共通動作を調整します。",
+  "nav": {
+    "general": {
+      "label": "一般",
+      "hint": "言語とテーマ"
+    },
+    "update": {
+      "label": "更新",
+      "hint": "確認方針"
+    }
+  },
+  "subtitle": {
+    "general_config": "一般設定",
+    "update_config": "更新設定"
+  },
+  "fields": {
+    "language": "言語",
+    "theme": "テーマ",
+    "light_mode": "ライト",
+    "dark_mode": "ダーク",
+    "system_mode": "システム",
+    "notification": {
+      "label": "システム通知",
+      "test_btn": "通知をテスト",
+      "test_title": "通知が接続されました",
+      "test_body": "Electron メインプロセスからシステム通知を表示できます。"
+    },
+    "update": {
+      "auto_check": {
+        "label": "起動時に自動確認",
+        "desc": "起動後に GitHub Releases を静かに確認し、新しいバージョンがある場合だけ通知します。"
+      },
+      "show_changelog": {
+        "label": "変更履歴を表示",
+        "desc": "新しいバージョンがある場合、CHANGELOG.md を取得して関連項目を表示します。"
+      },
+      "target_repo": "対象リポジトリ",
+      "target_repo_desc": "テンプレートをコピーした後、.env、package.json template.update、アプリ定数で対象リポジトリを設定できます。"
+    }
+  }
+}
+

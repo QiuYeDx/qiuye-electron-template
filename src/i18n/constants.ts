@@ -1,0 +1,36 @@
+import { LangEnum } from "@/type/lang";
+
+export const LANGUAGE_STORAGE_KEY = "qiuye-electron-template-lang";
+export const DEFAULT_LANGUAGE = LangEnum.ZH;
+export const FALLBACK_LANGUAGE = LangEnum.ZH;
+export const SUPPORTED_LANGUAGES = Object.values(LangEnum) as LangEnum[];
+
+export const NAMESPACES = ["common", "home", "about", "setting"] as const;
+
+export type Namespace = (typeof NAMESPACES)[number];
+
+export const DEFAULT_NAMESPACE: Namespace = "common";
+
+export const normalizeLanguage = (lng?: string | null): LangEnum => {
+  if (!lng) return DEFAULT_LANGUAGE;
+  if (SUPPORTED_LANGUAGES.includes(lng as LangEnum)) return lng as LangEnum;
+
+  const lower = lng.toLowerCase();
+  if (lower.startsWith("zh")) {
+    return /[-_](hant|tw|hk|mo)/i.test(lng) ? LangEnum.ZH_HANT : LangEnum.ZH;
+  }
+
+  const base = lng.split("-")[0] as LangEnum;
+  return SUPPORTED_LANGUAGES.includes(base) ? base : DEFAULT_LANGUAGE;
+};
+
+export const resolveInitialLanguage = (): LangEnum => {
+  if (typeof window === "undefined") return DEFAULT_LANGUAGE;
+  try {
+    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return normalizeLanguage(stored || navigator.language);
+  } catch {
+    return DEFAULT_LANGUAGE;
+  }
+};
+

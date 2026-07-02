@@ -1,0 +1,44 @@
+{
+  "title": "Settings",
+  "description": "Tune template-level preferences and common behavior.",
+  "nav": {
+    "general": {
+      "label": "General",
+      "hint": "Language and theme"
+    },
+    "update": {
+      "label": "Updates",
+      "hint": "Check strategy"
+    }
+  },
+  "subtitle": {
+    "general_config": "General Settings",
+    "update_config": "Update Settings"
+  },
+  "fields": {
+    "language": "Language",
+    "theme": "Theme",
+    "light_mode": "Light",
+    "dark_mode": "Dark",
+    "system_mode": "System",
+    "notification": {
+      "label": "System Notification",
+      "test_btn": "Test Notification",
+      "test_title": "Notification Connected",
+      "test_body": "The Electron main process can show system notifications."
+    },
+    "update": {
+      "auto_check": {
+        "label": "Auto check on startup",
+        "desc": "Silently checks GitHub Releases after startup and only notifies when a new version exists."
+      },
+      "show_changelog": {
+        "label": "Show changelog",
+        "desc": "When a new version exists, try to fetch CHANGELOG.md and show related entries."
+      },
+      "target_repo": "Target repository",
+      "target_repo_desc": "After copying the template, configure the target repo through .env, package.json template.update, and app constants."
+    }
+  }
+}
+

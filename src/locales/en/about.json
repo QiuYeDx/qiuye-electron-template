@@ -1,0 +1,48 @@
+{
+  "title": "About",
+  "description": "Template information, version, and project links.",
+  "tagline": "An Electron template for personal project bootstrapping: reusable app experience without domain-specific business code.",
+  "buttons": {
+    "repo": "Repository",
+    "releases": "Releases"
+  },
+  "stats": {
+    "platform": "Platform",
+    "license": "License",
+    "build": "Build",
+    "stack": "Stack"
+  },
+  "links": {
+    "repo": {
+      "title": "Source Repository",
+      "desc": "After copying the template, update the repo, appId, app name, and icons first."
+    },
+    "author": {
+      "title": "Author Site",
+      "desc": "Personal projects and portfolio entry."
+    },
+    "blog": {
+      "title": "Blog",
+      "desc": "Notes about design, development, and experiments."
+    },
+    "contact": {
+      "title": "Contact",
+      "desc": "For template maintenance and project collaboration."
+    }
+  },
+  "subtitle": {
+    "tech_stack": "Tech Stack"
+  },
+  "tech": {
+    "framework": "Framework",
+    "language": "Language",
+    "build_tool": "Build Tool",
+    "style": "Style",
+    "state": "State",
+    "motion": "Motion",
+    "i18n": "i18n",
+    "pkg": "Package Manager"
+  },
+  "license_note": "The template defaults to MIT License. Re-check the license when turning it into a private or commercial project."
+}
+
