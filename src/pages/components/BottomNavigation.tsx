@@ -111,7 +111,8 @@ function BottomNavigation() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="pointer-events-auto absolute right-6">
+      {/* 11px matches the gap below the button (58px bar, 36px button), so the corner inset is even. */}
+      <div className="pointer-events-auto absolute right-[11px]">
         <Button
           variant="outline"
           size="icon"
