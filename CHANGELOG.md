@@ -6,6 +6,14 @@ All notable changes to this template are documented in this file.
 
 - Template is ready for project-specific renaming and extension.
 
+### Added
+
+- Added `docs/CHANGELOG_TEMPLATE.md` and `changelog:check` (part of `pnpm check`), which fails when the `package.json` version has no non-empty CHANGELOG entry.
+
+### Fixed
+
+- Even corner inset for the theme toggle in the bottom navigation (11px from the right, matching its bottom gap).
+
 ## [0.1.0] - 2026-07-02
 
 ### Added

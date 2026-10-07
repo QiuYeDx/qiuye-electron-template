@@ -29,6 +29,13 @@
 - 新增页面文案要进入 `src/locales/{zh,zh-Hant,en,ja}/`。
 - 保留 macOS/Windows titlebar、窗口按钮和拖拽热区的可用性。
 
+## 变更日志
+
+- 每次发布或合入用户可见的改动，都要更新 `CHANGELOG.md`；格式与分组见 `docs/CHANGELOG_TEMPLATE.md`，沿用项目已有的语言。
+- 标题必须是 `## [x.y.z] - 日期或说明`：应用内更新弹窗按此格式解析远程 CHANGELOG。
+- 升级 `package.json` 版本号时必须同时写好该版本条目；`corepack pnpm check` 中的 `changelog:check` 会拦截缺失或空的条目。
+- 复制模板成为新项目时，清空模板自身的历史，按模板文件从项目的第一个版本开始记录。
+
 ## 验证建议
 
 常规修改后至少运行：
@@ -36,6 +43,7 @@
 ```bash
 corepack pnpm typecheck
 corepack pnpm i18n:check
+corepack pnpm changelog:check
 ```
 
 涉及构建、Electron 主进程或 preload 时运行：
