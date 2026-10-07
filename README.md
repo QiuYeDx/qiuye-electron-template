@@ -21,6 +21,7 @@ corepack pnpm install --config.confirmModulesPurge=false
 corepack pnpm dev
 corepack pnpm typecheck
 corepack pnpm i18n:check
+corepack pnpm changelog:check
 corepack pnpm build:renderer
 corepack pnpm electron:check
 corepack pnpm release:dir
@@ -37,7 +38,7 @@ corepack pnpm release:win
 3. `.env.example`: GitHub Releases 目标仓库。
 4. `src/constants/app.ts`: 应用名、仓库、作者链接、联系方式。
 5. `src/assets/app-logo.svg`、`build/icon.*`、`public/favicon.ico`。
-6. `README.md`、`CHANGELOG.md`、`AGENTS.md`。
+6. `README.md`、`CHANGELOG.md`、`AGENTS.md`；`CHANGELOG.md` 清空模板自身的历史，按 `docs/CHANGELOG_TEMPLATE.md` 从项目的第一个版本开始记录。
 
 ## 目录结构
 
@@ -72,6 +73,12 @@ VITE_UPDATE_REPO=qiuye-electron-template
 VITE_UPDATE_RELEASES_URL=https://github.com/QiuYeDx/qiuye-electron-template/releases
 VITE_UPDATE_CHANGELOG_URL=https://raw.githubusercontent.com/QiuYeDx/qiuye-electron-template/main/CHANGELOG.md
 ```
+
+## 变更日志
+
+- 发布或合入用户可见的改动时更新 `CHANGELOG.md`，格式与常用分组见 [docs/CHANGELOG_TEMPLATE.md](docs/CHANGELOG_TEMPLATE.md)。
+- 版本标题使用 `## [x.y.z] - 日期或说明`，更新检查会读取远程 CHANGELOG 并展示相关版本条目。
+- `corepack pnpm changelog:check`（已包含在 `check` 中）要求 `package.json` 的当前版本在 CHANGELOG 中有非空条目。
 
 ## i18n
 
