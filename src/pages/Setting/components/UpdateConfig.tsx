@@ -21,7 +21,7 @@ function UpdateConfig() {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="flex items-center justify-between gap-4 rounded-lg border p-3">
+        <div className="flex items-center justify-between gap-4 rounded-smooth-lg border p-3">
           <div className="space-y-1">
             <Label>{t("setting:fields.update.auto_check.label")}</Label>
             <p className="text-xs text-muted-foreground">
@@ -31,7 +31,7 @@ function UpdateConfig() {
           <Switch checked={autoCheck} onCheckedChange={setAutoCheck} />
         </div>
 
-        <div className="flex items-center justify-between gap-4 rounded-lg border p-3">
+        <div className="flex items-center justify-between gap-4 rounded-smooth-lg border p-3">
           <div className="space-y-1">
             <Label>{t("setting:fields.update.show_changelog.label")}</Label>
             <p className="text-xs text-muted-foreground">
@@ -41,7 +41,7 @@ function UpdateConfig() {
           <Switch checked={showChangelog} onCheckedChange={setShowChangelog} />
         </div>
 
-        <div className="rounded-lg border border-dashed bg-muted/40 p-3">
+        <div className="rounded-smooth-lg border border-dashed bg-muted/40 p-3">
           <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {t("setting:fields.update.target_repo")}
           </div>

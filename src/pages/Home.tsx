@@ -23,12 +23,12 @@ function Home() {
   return (
     <div className="mx-auto max-w-5xl px-4 pb-[92px] pt-6 sm:px-8">
       <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
-        <section className="rounded-xl border bg-card p-6 shadow-sm">
+        <section className="rounded-smooth-xl border bg-card p-6 shadow-sm">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
             <img
               src={AppLogo}
               alt={APP_NAME}
-              className="h-20 w-20 shrink-0 rounded-2xl shadow-sm"
+              className="h-20 w-20 shrink-0 rounded-smooth-2xl shadow-sm"
             />
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
@@ -83,7 +83,7 @@ function Home() {
           return (
             <Card key={index}>
               <CardHeader className="gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg border bg-muted">
+                <div className="flex h-9 w-9 items-center justify-center rounded-smooth-lg border bg-muted">
                   <Icon className="h-4 w-4" />
                 </div>
                 <CardTitle className="text-base">

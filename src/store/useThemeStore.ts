@@ -93,6 +93,13 @@ const useThemeStore = create<ThemeStore>()(
   )
 );
 
+// Other windows of the app (such as the tray menu) share localStorage; follow their changes.
+if (typeof window !== "undefined") {
+  window.addEventListener("storage", (event) => {
+    if (event.key === STORAGE_KEY) void useThemeStore.persist.rehydrate();
+  });
+}
+
 if (typeof window !== "undefined") {
   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   mediaQuery.addEventListener("change", (event: MediaQueryListEvent) => {

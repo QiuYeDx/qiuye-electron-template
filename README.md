@@ -36,7 +36,7 @@ corepack pnpm release:win
 2. `electron-builder.json`: `appId`、`shortcutName`、图标和产物命名。
 3. `.env.example`: GitHub Releases 目标仓库。
 4. `src/constants/app.ts`: 应用名、仓库、作者链接、联系方式。
-5. `src/assets/app-logo.svg`、`build/icon.*`、`public/favicon.ico`。
+5. `src/assets/app-logo.svg`、`build/icon.*`、`public/favicon.ico`、`public/tray-icon.png` / `tray-icon@2x.png`（macOS / Linux 托盘图标，16 / 32px）。
 6. `README.md`、`CHANGELOG.md`、`AGENTS.md`；`CHANGELOG.md` 清空模板自身的历史，按 `docs/CHANGELOG_TEMPLATE.md` 从项目的第一个版本开始记录。
 
 ## 目录结构
@@ -45,6 +45,7 @@ corepack pnpm release:win
 electron/          Electron main/preload
 src/components/    shadcn/ui、qiuye-ui、更新弹窗
 src/pages/         Home/About/Setting 模板页
+src/tray-menu/     托盘菜单页面（自绘，见下文）
 src/i18n/          i18next 初始化与资源聚合
 src/locales/       zh、zh-Hant、en、ja 文案
 src/store/         Zustand 状态与偏好
@@ -53,6 +54,19 @@ build/             electron-builder 图标资源
 public/            静态资源
 scripts/           项目检查脚本
 ```
+
+## 托盘菜单
+
+Windows 不允许给原生托盘菜单换主题，所以模板自绘了一个：`electron/main/tray.ts`（托盘图标与动作）+ `electron/main/tray-menu.ts`（透明菜单窗口）+ `tray-menu.html` / `src/tray-menu/`（页面）。
+
+- 默认菜单项：显示 / 隐藏主窗口、外观（浅色 / 深色 / 跟随系统）、退出。Windows / Linux 单击托盘图标显示主窗口、右键打开菜单；macOS 单击即打开菜单。
+- 新增菜单项：在 `src/tray-menu/TrayMenu.tsx` 加一行；需要主进程执行的动作，同时加到 `src/tray-menu/shared.ts` 的 `TrayMenuAction` 和 `tray.ts` 的 `handleAction`。文案放在 `common:tray.*`。
+- 菜单跟随应用的主题、语言和鼠标指针设置；在菜单里改主题会写入 localStorage，主窗口通过 `storage` 事件同步。
+- 不需要托盘的项目：删掉 `index.ts` 里创建 `AppTray` 的几行和上述文件即可。
+
+## 平滑圆角
+
+`rounded-smooth-*`（`src/smooth-corners.css`）是带平滑曲线的 `rounded-*`：`rounded-smooth-xl`、`rounded-smooth-[22px]`、`rounded-smooth-[var(--r)]`。支持 `corner-shape` 时半径放大 1.6 倍并画成 superellipse，否则保持原半径。卡片、按钮、弹窗等表面都已使用；胶囊和圆形仍用 `rounded-full`。嵌套表面按“外半径 = 内半径 + 间距”取值。
 
 ## 更新检查
 

@@ -28,6 +28,12 @@
     "error_title": "檢查更新失敗",
     "open_releases": "開啟 Releases",
     "changelog_title": "更新日誌"
+  },
+  "tray": {
+    "show_window": "顯示主視窗",
+    "hide_window": "隱藏主視窗",
+    "theme": "外觀",
+    "quit": "結束"
   }
 }
 

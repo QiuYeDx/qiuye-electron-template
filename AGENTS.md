@@ -39,7 +39,15 @@
   - Select 的选项不在 SelectGroup 里时，把 `p-1` 移到 Viewport 上。
   - SelectTrigger、TabsList 等用 `data-[size=sm]:*`、`group-data-horizontal/*` 变体设置尺寸，覆盖时要写同一变体。
   - Card 描边是外侧 `ring-1`，紧贴滚动区或 `overflow-hidden` 边缘时要留出 1px。
+- 圆角用 `rounded-smooth-*`（`src/smooth-corners.css`），`cn()` 已让它与 `rounded-*` 互相覆盖；嵌套表面按“外半径 = 内半径 + 间距”取值，胶囊和圆形保持 `rounded-full`。小于约 28px 的控件用小一档，避免放大后的半径超过短边一半被压缩。
 - 可点击元素的鼠标指针由设置项控制（`useCursorStore` → `html[data-cursor]`），不要在组件里单独写死 `cursor-pointer`。
+
+## 托盘菜单
+
+- 托盘菜单是自绘的透明窗口（`electron/main/tray-menu.ts` + `tray-menu.html` / `src/tray-menu/`），因为 Windows 原生菜单无法主题化。
+- Windows 重新显示窗口时会先放出它隐藏前的最后一帧，所以关闭走 `tray-menu:hide` → 页面淡出并画出空帧 → `tray-menu:hidden` → `win.hide()`；不要直接 `win.hide()`，否则每次打开都会闪一下旧菜单。
+- 阴影必须落在 `TRAY_MENU_SHADOW_MARGIN`（`src/tray-menu/shared.ts`）以内，否则会在窗口边缘被裁成方框；点击透明边距等同于点击菜单外部。
+- 隐藏的菜单窗口会让 `window-all-closed` 不再触发，主窗口的 `closed` 里显式退出（macOS 除外）；查找主窗口用 `win` 变量，不要用 `BrowserWindow.getAllWindows()[0]`。
 
 ## 变更日志
 

@@ -28,6 +28,12 @@
     "error_title": "Update check failed",
     "open_releases": "Open Releases",
     "changelog_title": "Changelog"
+  },
+  "tray": {
+    "show_window": "Show Main Window",
+    "hide_window": "Hide Main Window",
+    "theme": "Appearance",
+    "quit": "Quit"
   }
 }
 

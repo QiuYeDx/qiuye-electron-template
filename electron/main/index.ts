@@ -9,6 +9,7 @@ import {
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import os from "node:os";
+import { AppTray } from "./tray";
 import { setupUpdateIPC } from "./update";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -25,7 +26,9 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 
 const START_LOADING_PROGRESS_CHANNEL = "qiuye-template-start-loading-progress";
 const preload = path.join(__dirname, "../preload/index.mjs");
+const menuPreload = path.join(__dirname, "../preload/menu.mjs");
 const indexHtml = path.join(RENDERER_DIST, "index.html");
+const APP_TITLE = process.env.APP_NAME || "QiuYe Electron Template";
 
 if (os.release().startsWith("6.1")) {
   app.disableHardwareAcceleration();
@@ -41,10 +44,21 @@ if (!app.requestSingleInstanceLock()) {
 }
 
 let win: BrowserWindow | null = null;
+let tray: AppTray | null = null;
+
+function showMainWindow() {
+  if (!win || win.isDestroyed()) {
+    void createWindow();
+    return;
+  }
+  if (win.isMinimized()) win.restore();
+  win.show();
+  win.focus();
+}
 
 async function createWindow() {
   win = new BrowserWindow({
-    title: process.env.APP_NAME || "QiuYe Electron Template",
+    title: APP_TITLE,
     icon: path.join(process.env.VITE_PUBLIC, "favicon.ico"),
     width: 1080,
     height: 786,
@@ -100,6 +114,13 @@ async function createWindow() {
     Menu.setApplicationMenu(Menu.buildFromTemplate([]));
   }
 
+  // The hidden tray menu window keeps window-all-closed from firing, so
+  // closing the main window quits here (macOS keeps the app, as before).
+  win.on("closed", () => {
+    win = null;
+    if (process.platform !== "darwin") app.quit();
+  });
+
   win.webContents.setWindowOpenHandler(({ url }) => {
     if (/^https?:\/\//i.test(url) || /^mailto:/i.test(url)) {
       shell.openExternal(url);
@@ -111,6 +132,23 @@ async function createWindow() {
 app.whenReady().then(() => {
   void createWindow();
   setupUpdateIPC();
+  tray = new AppTray({
+    tooltip: APP_TITLE,
+    publicDir: process.env.VITE_PUBLIC,
+    preload: menuPreload,
+    loadMenu: (menuWin) =>
+      VITE_DEV_SERVER_URL
+        ? menuWin.loadURL(`${VITE_DEV_SERVER_URL}tray-menu.html`)
+        : menuWin.loadFile(path.join(RENDERER_DIST, "tray-menu.html")),
+    getMainWindow: () => (win && !win.isDestroyed() ? win : null),
+    showMainWindow,
+    quit: () => app.quit(),
+  });
+});
+
+app.on("before-quit", () => {
+  tray?.destroy();
+  tray = null;
 });
 
 app.on("window-all-closed", () => {
@@ -118,20 +156,10 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-app.on("second-instance", () => {
-  if (!win) return;
-  if (win.isMinimized()) win.restore();
-  win.focus();
-});
+app.on("second-instance", () => showMainWindow());
 
-app.on("activate", () => {
-  const allWindows = BrowserWindow.getAllWindows();
-  if (allWindows.length) {
-    allWindows[0].focus();
-  } else {
-    void createWindow();
-  }
-});
+// macOS: clicking the Dock icon brings the main window back (or recreates it).
+app.on("activate", () => showMainWindow());
 
 type WindowControlAction = "close" | "minimize" | "toggle-maximize";
 

@@ -28,6 +28,12 @@
     "error_title": "检查更新失败",
     "open_releases": "打开 Releases",
     "changelog_title": "更新日志"
+  },
+  "tray": {
+    "show_window": "显示主窗口",
+    "hide_window": "隐藏主窗口",
+    "theme": "外观",
+    "quit": "退出"
   }
 }
 
