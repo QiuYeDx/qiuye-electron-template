@@ -28,6 +28,12 @@
     "error_title": "更新確認に失敗しました",
     "open_releases": "Releases を開く",
     "changelog_title": "変更履歴"
+  },
+  "tray": {
+    "show_window": "メインウィンドウを表示",
+    "hide_window": "メインウィンドウを隠す",
+    "theme": "外観",
+    "quit": "終了"
   }
 }
 

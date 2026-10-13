@@ -33,6 +33,7 @@
 | UPDATE-001 GitHub Releases 更新检查 | 已完成 | 2026-07-02 | `electron/main/update.ts`; `src/components/update/*`; `src/store/useUpdatePreferencesStore.ts`; `src/constants/app.ts` | `corepack pnpm typecheck`; `corepack pnpm build:renderer` | `docs/开发设计文档/electron_template_scaffold_implementation_records/2026-07-02_INIT-001_template-bootstrap.md` | 仅提示并打开 release 页面，不自动下载 |
 | DOC-002 README/CHANGELOG/AGENTS | 已完成 | 2026-07-02 | `README.md`; `CHANGELOG.md`; `AGENTS.md`; `.env.example` | 文档路径检查；`corepack pnpm check` | `docs/开发设计文档/electron_template_scaffold_implementation_records/2026-07-02_INIT-001_template-bootstrap.md` | - |
 | GIT-001 初始化 git | 已完成 | 2026-07-02 | `.git/`; branch `main` | `git status --short` | `docs/开发设计文档/electron_template_scaffold_implementation_records/2026-07-02_INIT-001_template-bootstrap.md` | 尚未创建初始 commit |
+| TRAY-001 自绘托盘菜单与平滑圆角 | 已完成 | 2026-10-14 | `electron/main/tray.ts`; `electron/main/tray-menu.ts`; `src/tray-menu/*`; `tray-menu.html`; `src/smooth-corners.css`; `src/lib/utils.ts` | `corepack pnpm check`; Playwright 端到端（打开 / 关闭握手 / 主题同步 / 显示隐藏 / 退出）；浅 / 深色截图 | `docs/开发设计文档/electron_template_scaffold_implementation_records/2026-10-14_TRAY-001_tray-menu-and-smooth-corners.md` | macOS / Linux 托盘未实机验证 |
 | QA-001 安装与构建验证 | 已完成 | 2026-07-02 | `pnpm-lock.yaml`; `dist/`; `dist-electron/` | `corepack pnpm install`; `corepack pnpm check`; `corepack pnpm build:renderer` | `docs/开发设计文档/electron_template_scaffold_implementation_records/2026-07-02_INIT-001_template-bootstrap.md` | Vite 提示 renderer chunk 大于 500 kB，非阻塞 |
 
 ## 依赖顺序

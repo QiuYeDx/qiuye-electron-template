@@ -58,7 +58,10 @@ export default defineConfig(({ command }) => {
           },
         },
         preload: {
-          input: "electron/preload/index.ts",
+          input: {
+            index: "electron/preload/index.ts",
+            menu: "electron/preload/menu.ts",
+          },
           vite: {
             resolve: {
               alias: {
@@ -71,6 +74,11 @@ export default defineConfig(({ command }) => {
               outDir: "dist-electron/preload",
               rollupOptions: {
                 external: preloadExternal,
+                // The two preloads (main window, tray menu) share no modules,
+                // so each still builds to a single self-contained file.
+                output: {
+                  inlineDynamicImports: false,
+                },
               },
             },
           },
@@ -87,6 +95,14 @@ export default defineConfig(({ command }) => {
         };
       })()
       : undefined,
+    build: {
+      rollupOptions: {
+        input: {
+          index: path.join(__dirname, "index.html"),
+          "tray-menu": path.join(__dirname, "tray-menu.html"),
+        },
+      },
+    },
     clearScreen: false,
   };
 });

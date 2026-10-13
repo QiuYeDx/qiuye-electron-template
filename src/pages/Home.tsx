@@ -33,7 +33,7 @@ function Home() {
               <img
                 src={AppLogo}
                 alt={APP_NAME}
-                className="h-20 w-20 shrink-0 rounded-2xl shadow-sm"
+                className="h-20 w-20 shrink-0 rounded-smooth-2xl shadow-sm"
               />
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
@@ -89,7 +89,7 @@ function Home() {
           return (
             <Card key={index}>
               <CardHeader className="gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg border bg-muted">
+                <div className="flex h-9 w-9 items-center justify-center rounded-smooth-lg border bg-muted">
                   <Icon className="h-4 w-4" />
                 </div>
                 <CardTitle className="text-base">

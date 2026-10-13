@@ -34,4 +34,11 @@ const useCursorStore = create<CursorStore>()(
 applyClickableCursor(useCursorStore.getState().clickableCursor);
 useCursorStore.subscribe((state) => applyClickableCursor(state.clickableCursor));
 
+// Other windows of the app (such as the tray menu) follow a change made in Settings.
+if (typeof window !== "undefined") {
+  window.addEventListener("storage", (event) => {
+    if (event.key === STORAGE_KEY) void useCursorStore.persist.rehydrate();
+  });
+}
+
 export default useCursorStore;
