@@ -21,6 +21,12 @@
     "light_mode": "Light",
     "dark_mode": "Dark",
     "system_mode": "System",
+    "cursor": {
+      "label": "Mouse Pointer",
+      "hint": "The pointer shown over clickable elements (buttons, menu items, options)",
+      "pointer": "Hand",
+      "default": "Arrow"
+    },
     "notification": {
       "label": "System Notification",
       "test_btn": "Test Notification",

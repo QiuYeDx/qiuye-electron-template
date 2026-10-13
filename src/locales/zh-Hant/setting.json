@@ -21,6 +21,12 @@
     "light_mode": "淺色",
     "dark_mode": "深色",
     "system_mode": "跟隨系統",
+    "cursor": {
+      "label": "滑鼠指標",
+      "hint": "可點擊元素（按鈕、選單項目、選項等）顯示的指標",
+      "pointer": "手形指標",
+      "default": "預設指標"
+    },
     "notification": {
       "label": "系統通知",
       "test_btn": "測試通知",

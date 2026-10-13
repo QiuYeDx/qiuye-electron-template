@@ -9,6 +9,7 @@ All notable changes to this template are documented in this file.
 ### Added
 
 - Added qiuye-ui smooth corners with an Electron runtime capability check.
+- Settings → General → Mouse Pointer: clickable elements (buttons, links, menu items, options, tabs, switches) show the hand pointer or the regular arrow. The choice is stored and applied through `html[data-cursor]` before the first render.
 - Added `docs/CHANGELOG_TEMPLATE.md` and `changelog:check` (part of `pnpm check`), which fails when the `package.json` version has no non-empty CHANGELOG entry.
 
 ### Changed

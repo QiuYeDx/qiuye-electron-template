@@ -3,6 +3,7 @@ import { Bell } from "lucide-react";
 import useLanguage from "@/hooks/useLanguage";
 import useThemeStore from "@/store/useThemeStore";
 import useNotificationStore from "@/store/useNotificationStore";
+import useCursorStore from "@/store/useCursorStore";
 import { LangEnum } from "@/type/lang";
 import { showSystemNotification } from "@/utils/notification";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ function GeneralConfig() {
   const { theme, setTheme } = useThemeStore();
   const { enabled: notificationEnabled, setEnabled: setNotificationEnabled } =
     useNotificationStore();
+  const { clickableCursor, setClickableCursor } = useCursorStore();
 
   return (
     <Card>
@@ -61,6 +63,29 @@ function GeneralConfig() {
                 onClick={() => setTheme(value)}
               >
                 {t(`setting:fields.${value}_mode`)}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <Label className="min-w-[80px] text-sm font-medium">
+            {t("setting:fields.cursor.label")}
+          </Label>
+          <div
+            className="flex flex-wrap gap-2"
+            role="group"
+            aria-label={t("setting:fields.cursor.hint")}
+          >
+            {(["pointer", "default"] as const).map((value) => (
+              <Button
+                key={value}
+                size="sm"
+                variant={clickableCursor === value ? "default" : "outline"}
+                aria-pressed={clickableCursor === value}
+                onClick={() => setClickableCursor(value)}
+              >
+                {t(`setting:fields.cursor.${value}`)}
               </Button>
             ))}
           </div>
