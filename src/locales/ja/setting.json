@@ -21,6 +21,12 @@
     "light_mode": "ライト",
     "dark_mode": "ダーク",
     "system_mode": "システム",
+    "cursor": {
+      "label": "マウスポインター",
+      "hint": "クリックできる要素（ボタン、メニュー項目、選択肢など）に表示するポインター",
+      "pointer": "手の形",
+      "default": "標準の矢印"
+    },
     "notification": {
       "label": "システム通知",
       "test_btn": "通知をテスト",

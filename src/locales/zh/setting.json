@@ -21,6 +21,12 @@
     "light_mode": "浅色",
     "dark_mode": "深色",
     "system_mode": "跟随系统",
+    "cursor": {
+      "label": "鼠标指针",
+      "hint": "可点击元素（按钮、菜单项、选项等）显示的指针",
+      "pointer": "手形指针",
+      "default": "默认指针"
+    },
     "notification": {
       "label": "系统通知",
       "test_btn": "测试通知",
