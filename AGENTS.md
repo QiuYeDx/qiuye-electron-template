@@ -29,6 +29,18 @@
 - 新增页面文案要进入 `src/locales/{zh,zh-Hant,en,ja}/`。
 - 保留 macOS/Windows titlebar、窗口按钮和拖拽热区的可用性。
 
+## UI 组件
+
+- shadcn/ui 使用 `radix-nova` 风格（`radix-ui` 单包），通过 `pnpm dlx shadcn@latest add <name>` 安装；工具函数从 `@/lib/utils` 导入 `cn`。
+- `components/ui/sonner.tsx` 从 `@/store/useThemeStore` 取主题（模板不用 next-themes），重装后要改回来。
+- nova 默认值与旧版不同，新增组件时注意：
+  - Popover 内容是 `flex flex-col gap-2.5`，Tooltip 内容是 `inline-flex`；内容自带布局时改回块级。
+  - DropdownMenuContent 宽度等于触发器（`w-(--radix-dropdown-menu-trigger-width)`），图标按钮触发的菜单应去掉。
+  - Select 的选项不在 SelectGroup 里时，把 `p-1` 移到 Viewport 上。
+  - SelectTrigger、TabsList 等用 `data-[size=sm]:*`、`group-data-horizontal/*` 变体设置尺寸，覆盖时要写同一变体。
+  - Card 描边是外侧 `ring-1`，紧贴滚动区或 `overflow-hidden` 边缘时要留出 1px。
+- 可点击元素的鼠标指针由设置项控制（`useCursorStore` → `html[data-cursor]`），不要在组件里单独写死 `cursor-pointer`。
+
 ## 变更日志
 
 - 每次发布或合入用户可见的改动，都要更新 `CHANGELOG.md`；格式与分组见 `docs/CHANGELOG_TEMPLATE.md`，沿用项目已有的语言。

@@ -166,7 +166,8 @@ function Setting() {
                 onAnimationStart={(definition) => {
                   if (definition === "animate") checkScroll();
                 }}
-                className="flex flex-col gap-4 py-1 pr-3"
+                // pl-px: nova cards draw an outer ring that the ScrollArea would clip on the left
+                className="flex flex-col gap-4 py-1 pl-px pr-3"
               >
                 {tab === "general" ? <GeneralConfig /> : <UpdateConfig />}
               </motion.div>

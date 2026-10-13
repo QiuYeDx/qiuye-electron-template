@@ -16,6 +16,7 @@ All notable changes to this template are documented in this file.
 
 - Upgraded the `electron-modern` branch to Electron 41.10.3 while preserving unsigned macOS system notifications.
 - Updated the supported development runtimes to Node.js 22.12+ and Node.js 24, with Node.js 24 recommended.
+- shadcn/ui moved to the radix-nova style: compact controls (32px default buttons and inputs), ring outlines and 16px card spacing. Components use the `radix-ui` package; the qiuye-ui DualStateToggle and ScrollableDialog are updated from the registry. The bottom navigation keeps its 32px items.
 
 ### Fixed
 
