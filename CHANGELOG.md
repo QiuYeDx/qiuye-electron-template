@@ -11,6 +11,10 @@ All notable changes to this template are documented in this file.
 - Settings → General → Mouse Pointer: clickable elements (buttons, links, menu items, options, tabs, switches) show the hand pointer or the regular arrow. The choice is stored and applied through `html[data-cursor]` before the first render.
 - Added `docs/CHANGELOG_TEMPLATE.md` and `changelog:check` (part of `pnpm check`), which fails when the `package.json` version has no non-empty CHANGELOG entry.
 
+### Changed
+
+- shadcn/ui moved to the radix-nova style: compact controls (32px default buttons and inputs), ring outlines and 16px card spacing. Components use the `radix-ui` package; the qiuye-ui DualStateToggle and ScrollableDialog are updated from the registry. The bottom navigation keeps its 32px items.
+
 ### Fixed
 
 - Even corner inset for the theme toggle in the bottom navigation (11px from the right, matching its bottom gap).
