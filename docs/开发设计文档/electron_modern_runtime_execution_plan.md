@@ -2,7 +2,7 @@
 
 ## 使用方式
 
-每次维护 `electron-modern` 前先读取：
+每次维护 `main`（原 `electron-modern`，见最终设计的分支调整说明）前先读取：
 
 - `docs/开发设计文档/electron_modern_runtime_final_design.md`
 - `docs/开发设计文档/electron_modern_runtime_execution_plan.md`
@@ -22,7 +22,8 @@
 | UI-EMR-001 qiuye-ui 平滑圆角接入 | 已完成 | 2026-07-30 | `src/components/qiuye-ui/smooth-corners.tsx`; `src/pages/Home.tsx` | Node 22/24 `typecheck`; renderer build | `docs/开发设计文档/electron_modern_runtime_implementation_records/2026-07-30_EMR-001_electron-41-runtime-upgrade.md` | - |
 | QA-EMR-001 Electron/CSS 运行时检查 | 已完成 | 2026-07-30 | `scripts/check-electron-runtime.mjs`; `package.json` | `electron:check`：Electron 41.10.3 / Chromium 146，原生 superellipse 生效 | `docs/开发设计文档/electron_modern_runtime_implementation_records/2026-07-30_EMR-001_electron-41-runtime-upgrade.md` | - |
 | QA-EMR-002 构建与目录包验证 | 已完成 | 2026-07-30 | `dist/`; `dist-electron/`; `release/` | `i18n:check`; `build:renderer`; `release:dir` | `docs/开发设计文档/electron_modern_runtime_implementation_records/2026-07-30_EMR-001_electron-41-runtime-upgrade.md` | 目录包按模板约束跳过代码签名 |
-| FOLLOW-CLI-001 脚手架模板版本选项 | 未开始 | - | `/Users/qiuyedx/Documents/Github/qiuye-fe-cli` | 由 CLI 项目另行设计和验证 | - | 不在本次仓库改动范围 |
+| BRANCH-EMR-001 现代版改为主分支 | 已完成 | 2026-10-14 | GitHub 分支：`main`、`legacy/electron-33`；`README.md`; `AGENTS.md`; `CHANGELOG.md` | 远程分支与默认分支核对；`changelog:check` | `docs/开发设计文档/electron_modern_runtime_implementation_records/2026-10-14_BRANCH-EMR-001_modern-as-main.md` | - |
+| FOLLOW-CLI-001 脚手架模板版本选项 | 未开始 | - | `/Users/qiuyedx/Documents/Github/qiuye-fe-cli` | 由 CLI 项目另行设计和验证 | - | 不在本次仓库改动范围；默认用 `main`，旧版选项映射 `legacy/electron-33` |
 
 ## 实施顺序
 
@@ -34,7 +35,7 @@
 
 ## 不得违反的约束
 
-- 不合并到 `main`，所有新版 Electron 改动留在 `electron-modern`。
+- 新改动都提交到 `main`；`legacy/electron-33` 只读归档，不再同步。
 - 未提供签名或等价通知替代方案前，不升级到 Electron 42+。
 - 保留系统通知、更新检查、macOS/Windows titlebar、窗口按钮与拖拽热区。
 - 固定 `packageManager: pnpm@8.7.0`，依赖命令只使用 `corepack pnpm`。

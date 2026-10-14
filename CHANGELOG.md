@@ -19,7 +19,8 @@ All notable changes to this template are documented in this file.
 - Cards, buttons, dialogs, alerts and the page surfaces use smooth corners; ScrollArea viewports inherit the corner shape.
 - Theme and pointer settings sync between the app's windows through `storage` events.
 - Closing the main window quits the app explicitly on Windows/Linux (the hidden tray menu window would otherwise keep it running); macOS keeps the app in the Dock as before.
-- Upgraded the `electron-modern` branch to Electron 41.10.3 while preserving unsigned macOS system notifications.
+- Upgraded to Electron 41.10.3 while preserving unsigned macOS system notifications.
+- `main` is now the Electron 41 template (formerly the `electron-modern` branch). The Electron 33 template is archived as `legacy/electron-33` and no longer maintained.
 - Updated the supported development runtimes to Node.js 22.12+ and Node.js 24, with Node.js 24 recommended.
 - shadcn/ui moved to the radix-nova style: compact controls (32px default buttons and inputs), ring outlines and 16px card spacing. Components use the `radix-ui` package; the qiuye-ui DualStateToggle and ScrollableDialog are updated from the registry. The bottom navigation keeps its 32px items.
 

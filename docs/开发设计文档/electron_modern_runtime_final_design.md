@@ -4,6 +4,8 @@
 
 在长期分支 `electron-modern` 中将 Electron 从声明版本 `^33.2.0`（当前锁定 `33.4.11`）升级到 `^41.10.3`，`main` 继续保留 Electron 33。
 
+> **2026-10-14 分支调整**：维护重心转到 Electron 41。`electron-modern` 已改名为 `main` 并成为默认分支，原 Electron 33 的 `main` 改名为 `legacy/electron-33` 归档，不再同步改动。下文“`electron-modern`”均指现在的 `main`；与之冲突的“不合并到 `main`”“`main` 保留 Electron 33”等约束以“长期分支与 CLI 接入”一节为准。
+
 Electron 41.10.3 是本次约束下的推荐版本：
 
 - 它是 2026-07-30 时 Electron 官方仍支持的三条稳定主线中，最后一个没有引入“macOS 系统通知要求应用签名”行为变化的版本。
@@ -17,7 +19,7 @@ Electron 41.10.3 是本次约束下的推荐版本：
 
 | Electron | Chromium | Node.js | 2026-07-30 状态 | 平滑圆角 | 结论 |
 |---|---:|---:|---|---|---|
-| 33.4.11 | 130 | 20.18.3 | 已停止支持 | 不支持，只有 `border-radius` 回退 | 保留在 `main` |
+| 33.4.11 | 130 | 20.18.3 | 已停止支持 | 不支持，只有 `border-radius` 回退 | 归档在 `legacy/electron-33` |
 | 38.8.6 | 140 | 22.22.0 | 已停止支持 | 支持 | 不选，已停止安全维护 |
 | 40.10.6 | 144 | 24.15.0 | 已停止支持 | 支持 | 不选，已停止安全维护 |
 | 41.10.3 | 146 | 24.18.0 | 官方支持，安全修复档 | 支持 | 本分支采用 |
@@ -112,9 +114,9 @@ corepack pnpm release:dir
 
 ## 长期分支与 CLI 接入
 
-- `main`：继续提供 Electron 33 兼容模板。
-- `electron-modern`：保存 Electron 41 和后续经约束评估通过的新运行时版本。
-- 后续 `/Users/qiuyedx/Documents/Github/qiuye-fe-cli` 可提供模板运行时选项，将旧版映射到 `main`、现代版映射到 `electron-modern`。
+- `main`（原 `electron-modern`，2026-10-14 起为默认分支）：维护分支，保存 Electron 41 和后续经约束评估通过的新运行时版本。
+- `legacy/electron-33`（原 `main`）：Electron 33 兼容模板的归档，不再同步改动。
+- 后续 `/Users/qiuyedx/Documents/Github/qiuye-fe-cli` 默认拉取 `main`；如保留旧版选项，映射到 `legacy/electron-33`。
 - 在没有签名方案或等价通知替代方案前，不得把本分支推进到 Electron 42+。
 - 每次推进 Electron 主版本前重新检查官方三版本支持策略、breaking changes、宿主 Node engines、macOS/Windows titlebar 和系统通知。
 
@@ -123,4 +125,4 @@ corepack pnpm release:dir
 - Electron 41 已处于官方支持窗口的最老一档，维护寿命短；分支说明和实施记录必须保留这一事实，不能把它描述为长期安全版本。
 - Node 22 最低版本会淘汰旧 Node 20 开发环境；README、AGENTS 和 `package.json` 必须保持一致。
 - qiuye-ui 平滑圆角在 Electron 41 生效，但在普通 Safari/Firefox Web 环境仍会按组件设计回退为标准圆角。
-- 回滚只需放弃 `electron-modern` 分支；`main` 不接收本次提交。
+- Electron 41 升级的回滚：从 `legacy/electron-33` 取回 Electron 33 版本（2026-10-14 分支调整之前，回滚方式是放弃 `electron-modern` 分支）。

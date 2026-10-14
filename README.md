@@ -2,6 +2,11 @@
 
 个人 Electron 应用模板，用来复制为新项目的初始化内容。它保留了通用桌面壳体验：React + Vite + Electron、shadcn/ui、qiuye-ui 小组件、i18n、深浅色主题切换动画、启动 Loading、底部导航、关于页、设置页，以及基于 GitHub Releases 的轻量更新检查。
 
+## 分支
+
+- `main`：当前维护的模板，Electron 41。
+- `legacy/electron-33`：Electron 33 / Node.js 18–22 的旧版模板，已归档，不再接收更新。只在必须兼容旧 Node 环境时使用。
+
 ## 环境
 
 - Node.js: `^22.12.0 || ^24.0.0`，推荐 `24.x`（不使用非 LTS 的 Node.js 23）
@@ -116,7 +121,7 @@ corepack pnpm i18n:check
 - `docs/开发设计文档/electron_template_scaffold_final_design.md`
 - `docs/开发设计文档/electron_template_scaffold_execution_plan.md`
 
-新版 Electron 长期分支的版本选择、兼容边界和实施进度见：
+Electron 运行时的版本选择、兼容边界、分支调整和实施进度见：
 
 - `docs/开发设计文档/electron_modern_runtime_final_design.md`
 - `docs/开发设计文档/electron_modern_runtime_execution_plan.md`
