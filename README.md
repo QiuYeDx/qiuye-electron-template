@@ -1,5 +1,7 @@
 # QiuYe Electron Template
 
+> **已归档**：这是 Electron 33 / Node.js 18–22 的旧版模板（`legacy/electron-33` 分支），不再接收更新。当前维护的模板在 [`main`](https://github.com/QiuYeDx/qiuye-electron-template/tree/main) 分支（Electron 41，Node.js 22.12+ / 24）。
+
 个人 Electron 应用模板，用来复制为新项目的初始化内容。它保留了通用桌面壳体验：React + Vite + Electron、shadcn/ui、qiuye-ui 小组件、i18n、深浅色主题切换动画、启动 Loading、底部导航、关于页、设置页，以及基于 GitHub Releases 的轻量更新检查。
 
 ## 环境
